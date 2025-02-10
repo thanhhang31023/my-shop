@@ -195,7 +195,9 @@ const HomePage: NextPage<TProps> = (props) => {
   }, [])
 
   useEffect(() => {
-    if (!isServerRendered.current && paramsServer && !!productTypesServer.length) {
+    // if (!isServerRendered.current && paramsServer && !!productTypesServer.length) {
+      if (!isServerRendered.current && paramsServer && Array.isArray(productTypesServer) && productTypesServer.length > 0) {
+
       setPage(paramsServer.page)
       setPageSize(paramsServer.limit)
       setSortBy(paramsServer.order)
